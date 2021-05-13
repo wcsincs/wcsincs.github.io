@@ -63,12 +63,12 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS-hírfolyam"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Keresés"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Buscar"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wcsincs.github.io.git"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Keresés"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wcsincs.github.io.git"></form>
       </div>
     </div>
   </div>
@@ -110,7 +110,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wcsincs.github.io.git/2021/05/13/%E5%86%B2%E6%BF%80%E4%BF%A1%E5%8F%B7%E5%90%88%E6%88%90/" data-id="ckomoxpu00000jkthg92pe0l9" data-title="冲击信号的合成" class="article-share-link">Compartir</a>
+      <a data-url="https://wcsincs.github.io.git/2021/05/13/%E5%86%B2%E6%BF%80%E4%BF%A1%E5%8F%B7%E5%90%88%E6%88%90/" data-id="ckomoxpu00000jkthg92pe0l9" data-title="冲击信号的合成" class="article-share-link">Megosztás</a>
       
       
       
@@ -138,7 +138,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/05/13/hello-world/">Hello World</a>
+      <a class="p-name article-title" href="/2021/05/13/hello-world/">冲击信号的合成</a>
     </h1>
   
 
@@ -146,27 +146,23 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="冲激信号的频谱"><a href="#冲激信号的频谱" class="headerlink" title="冲激信号的频谱"></a>冲激信号的频谱</h2><p>首先分析冲激信号的频谱，对单位冲击序列进行傅里叶变化可得，<br>$$ \delta[n] \iff 1 \tag{1} $$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\delta[n] \iff 1</span><br><span class="line">\tag&#123;1&#125;</span><br></pre></td></tr></table></figure>
+<p>由上式可得，其频谱覆盖全部频率，将所有频率叠加即可获取该冲激信号，</p>
+<p>如将1 - 20kHZ的信号进行合成即可得到一个冲激信号。</p>
+<p>.m文件代码如下，可自行测试</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line">            </span><br><span class="line">f_s = <span class="number">44100</span>;    <span class="comment">%采样频率       </span></span><br><span class="line">N = <span class="number">1024</span>;       <span class="comment">%采样点数               </span></span><br><span class="line"></span><br><span class="line">F_start = <span class="number">1</span>;    <span class="comment">%起始频率</span></span><br><span class="line">F_between = <span class="number">1</span>;  <span class="comment">%频率间隔</span></span><br><span class="line">F_end = <span class="number">20000</span>;  <span class="comment">%截至频率</span></span><br><span class="line">T_length = <span class="number">0</span> : <span class="number">0.1</span>/N : <span class="number">0.1</span><span class="number">-0.1</span>/N;   <span class="comment">%时间跨度</span></span><br><span class="line"></span><br><span class="line">F = F_start:F_between:F_end;    <span class="comment">%频率跨度</span></span><br><span class="line"></span><br><span class="line">Y = <span class="built_in">zeros</span>(<span class="number">1</span>,N);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">length</span>(F)         <span class="comment">%叠加合成</span></span><br><span class="line">    Y = Y + Frequency(F(<span class="built_in">i</span>), N, f_s);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(T_length, Y./<span class="built_in">max</span>(Y));  <span class="comment">%结果进行了归一化</span></span><br><span class="line">axis([<span class="number">0</span> <span class="number">0.02</span> <span class="number">0</span> <span class="number">1</span>]);</span><br><span class="line">grid on</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span> = <span class="title">Frequency</span><span class="params">(f, N, f_s)</span></span></span><br><span class="line"></span><br><span class="line">f_function = f;</span><br><span class="line">N_function = N;</span><br><span class="line">f_s_function = f_s;</span><br><span class="line">n_function = <span class="number">0</span>:N_function - <span class="number">1</span>;      <span class="comment">%信号重构点数</span></span><br><span class="line">t_function = n_function/f_s_function;   <span class="comment">%时间序列</span></span><br><span class="line"></span><br><span class="line">y = <span class="built_in">sin</span>(<span class="number">2</span>*<span class="built_in">pi</span>*f_function*t_function);</span><br><span class="line"></span><br><span class="line"><span class="comment">% plot(t, y);</span></span><br><span class="line"><span class="comment">% axis([0 1/f -1 1]);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wcsincs.github.io.git/2021/05/13/hello-world/" data-id="ckommdhyf0002c0thgw3gdg9c" data-title="Hello World" class="article-share-link">Compartir</a>
+      <a data-url="https://wcsincs.github.io.git/2021/05/13/hello-world/" data-id="ckommdhyf0002c0thgw3gdg9c" data-title="冲击信号的合成" class="article-share-link">Megosztás</a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3/" rel="tag">信号相关</a></li></ul>
+
     </footer>
   </div>
   
@@ -186,7 +182,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Címkék</h3>
     <div class="widget">
       <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3/" rel="tag">信号相关</a></li></ul>
     </div>
@@ -196,7 +192,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nube de Tags</h3>
+    <h3 class="widget-title">Címkefelhő</h3>
     <div class="widget tagcloud">
       <a href="/tags/%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3/" style="font-size: 10px;">信号相关</a>
     </div>
@@ -205,7 +201,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archivos</h3>
+    <h3 class="widget-title">Archív</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li></ul>
     </div>
@@ -215,7 +211,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Posts recientes</h3>
+    <h3 class="widget-title">Legfrissebb bejegyzések</h3>
     <div class="widget">
       <ul>
         
@@ -224,7 +220,7 @@
           </li>
         
           <li>
-            <a href="/2021/05/13/hello-world/">Hello World</a>
+            <a href="/2021/05/13/hello-world/">冲击信号的合成</a>
           </li>
         
       </ul>
@@ -241,7 +237,7 @@
     <div id="footer-info" class="inner">
       
       &copy; 2021 wcsin<br>
-      Construido por <a href="https://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
