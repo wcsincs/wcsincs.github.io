@@ -6,15 +6,15 @@
   
   <title>简易FIR低通滤波器 | WCsin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="简易FIR低通滤波器前置需求拉普拉斯变换、Z变换、数字信号处理 正文简易的RC低通滤波器系统函数可写为式(1)，$$H(s) &#x3D; \frac{V_{out}(s)}{V_{in}(s)} &#x3D;\frac{1}{1 + sRC}\tag{1}$$其中，s &#x3D; jw 关于简易滤波器可以参考文献 [1] 的16.7小节。 参考文献 [2] 的7.2.2小节，可得双线性变换法公式为式 (2) ，$$S &#x3D;">
+  <meta name="description" content="简易FIR低通滤波器前置需求拉普拉斯变换、Z变换、数字信号处理 正文简易的RC低通滤波器系统函数可写为式(1)， $$H(s) &#x3D; \frac{V_{out}(s)}{V_{in}(s)} &#x3D;\frac{1}{1 + sRC}\tag{1}$$ 其中，s &#x3D; jw 关于简易滤波器可以参考文献 [1] 的16.7小节。 参考文献 [2] 的7.2.2小节，可得双线性变换法公式为式 (2) ， $$S">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简易FIR低通滤波器">
 <meta property="og:url" content="https://wcsincs.github.io.git/2021/05/21/%E7%AE%80%E6%98%93FIR%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8/index.html">
 <meta property="og:site_name" content="WCsin">
-<meta property="og:description" content="简易FIR低通滤波器前置需求拉普拉斯变换、Z变换、数字信号处理 正文简易的RC低通滤波器系统函数可写为式(1)，$$H(s) &#x3D; \frac{V_{out}(s)}{V_{in}(s)} &#x3D;\frac{1}{1 + sRC}\tag{1}$$其中，s &#x3D; jw 关于简易滤波器可以参考文献 [1] 的16.7小节。 参考文献 [2] 的7.2.2小节，可得双线性变换法公式为式 (2) ，$$S &#x3D;">
+<meta property="og:description" content="简易FIR低通滤波器前置需求拉普拉斯变换、Z变换、数字信号处理 正文简易的RC低通滤波器系统函数可写为式(1)， $$H(s) &#x3D; \frac{V_{out}(s)}{V_{in}(s)} &#x3D;\frac{1}{1 + sRC}\tag{1}$$ 其中，s &#x3D; jw 关于简易滤波器可以参考文献 [1] 的16.7小节。 参考文献 [2] 的7.2.2小节，可得双线性变换法公式为式 (2) ， $$S">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-05-21T08:58:28.353Z">
-<meta property="article:modified_time" content="2021-05-21T09:06:15.738Z">
+<meta property="article:modified_time" content="2021-05-21T09:24:51.873Z">
 <meta property="article:author" content="wcsin">
 <meta property="article:tag" content="信号相关">
 <meta property="article:tag" content="FIR">
@@ -68,12 +68,12 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Rechercher"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wcsincs.github.io.git"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wcsincs.github.io.git"></form>
       </div>
     </div>
   </div>
@@ -103,11 +103,20 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h2 id="简易FIR低通滤波器"><a href="#简易FIR低通滤波器" class="headerlink" title="简易FIR低通滤波器"></a>简易FIR低通滤波器</h2><h3 id="前置需求"><a href="#前置需求" class="headerlink" title="前置需求"></a>前置需求</h3><p>拉普拉斯变换、Z变换、数字信号处理</p>
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>简易的RC低通滤波器系统函数可写为式(1)，<br>$$<br>H(s) = \frac{V_{out}(s)}{V_{in}(s)} =\frac{1}{1 + sRC}<br>\tag{1}<br>$$<br>其中，s = jw</p>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>简易的RC低通滤波器系统函数可写为式(1)，</p>
+<p>$$<br>H(s) = \frac{V_{out}(s)}{V_{in}(s)} =\frac{1}{1 + sRC}<br>\tag{1}<br>$$</p>
+<p>其中，s = jw</p>
 <p>关于简易滤波器可以参考文献 [1] 的16.7小节。</p>
-<p>参考文献 [2] 的7.2.2小节，可得双线性变换法公式为式 (2) ，<br>$$<br>S = \frac{2}{T_s} [\frac{1 - Z^{-1}}{1 + Z^{-1}}]<br>\tag{2}<br>$$<br>其中，<br>$$<br>T_s为采样间隔，f_s为采样频率 \<br>f_s = \frac{1}{T_s}<br>$$<br>将RC滤波器系统函数进行双线性变换可得，<br>$$<br>\begin{align}<br>H(s) &amp;= \frac{1}{sRC} \<br>     &amp;= \frac{1} {2f_s RC (\frac{1 - Z^{-1}}{1 + Z^{-1}}) + 1} \<br>     &amp;= \frac{1 + Z^{-1}} {2f_s RC(1 - Z^{-1}) + (1 + Z^{-1})} \<br>     &amp;= \frac{1 + Z^{-1}} {1 - \frac{B} {A}Z^{-1}}<br>\end{align}<br>\tag{3}<br>$$<br>结果进行了归一化，其中，<br>$$<br>A = 2 f_s RC + 1 \</p>
-<p>B = 2 f_s RC - 1<br>$$</p>
-<p>参考文献 [2] 的 6.0 至 6.2小节，可将其转换为差分方程，表达为式 (4) ，<br>$$<br>y[k] = \frac{1}{A} x[k] + \frac{1}{A} x[k - 1] + \frac{B}{A} y[k - 1]<br>\tag{4}<br>$$</p>
+<p>参考文献 [2] 的7.2.2小节，可得双线性变换法公式为式 (2) ，</p>
+<p>$$<br>S = \frac{2}{T_s} [\frac{1 - Z^{-1}}{1 + Z^{-1}}]<br>\tag{2}<br>$$</p>
+<p>其中，</p>
+<p>$$<br>T_s为采样间隔，f_s为采样频率 \<br>f_s = \frac{1}{T_s}<br>$$</p>
+<p>将RC滤波器系统函数进行双线性变换可得，</p>
+<p>$$<br>\begin{align}<br>H(s) &amp;= \frac{1}{sRC} \<br>     &amp;= \frac{1} {2f_s RC (\frac{1 - Z^{-1}}{1 + Z^{-1}}) + 1} \<br>     &amp;= \frac{1 + Z^{-1}} {2f_s RC(1 - Z^{-1}) + (1 + Z^{-1})} \<br>     &amp;= \frac{1 + Z^{-1}} {1 - \frac{B} {A}Z^{-1}}<br>\end{align}<br>\tag{3}<br>$$</p>
+<p>结果进行了归一化，其中，</p>
+<p>$$<br>A = 2 f_s RC + 1 \<br>B = 2 f_s RC - 1<br>$$</p>
+<p>参考文献 [2] 的 6.0 至 6.2小节，可将其转换为差分方程，表达为式 (4) ，</p>
+<p>$$<br>y[k] = \frac{1}{A} x[k] + \frac{1}{A} x[k - 1] + \frac{B}{A} y[k - 1]<br>\tag{4}<br>$$</p>
 <p>至此已说明FIR低通滤波器简易原理，可用以下.m文件代码仿真实验，</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">clear all</span><br><span class="line"></span><br><span class="line">f_s = <span class="number">44100</span>;	<span class="comment">%采样频率</span></span><br><span class="line">f_c = <span class="number">200</span>;		<span class="comment">%滤波器截至频率	</span></span><br><span class="line">N = <span class="number">5120</span>;		<span class="comment">%采样点数		</span></span><br><span class="line"></span><br><span class="line">f_test = <span class="number">100</span>; 	<span class="comment">%测试频率	</span></span><br><span class="line"></span><br><span class="line">n = <span class="number">0</span>:N - <span class="number">1</span>;		<span class="comment">%信号重构点数</span></span><br><span class="line">T_length = n/f_s;	<span class="comment">%时间序列</span></span><br><span class="line"></span><br><span class="line">RC = <span class="number">1</span>/(<span class="number">2</span> * <span class="built_in">pi</span> * f_c);	<span class="comment">%实际滤波器的RC值</span></span><br><span class="line"></span><br><span class="line">A = <span class="number">2</span> * f_s * RC + <span class="number">1</span>;	<span class="comment">%归一化系数</span></span><br><span class="line">B = <span class="number">2</span> * f_s * RC - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">Y = <span class="built_in">zeros</span>(<span class="number">1</span>,N);</span><br><span class="line">X = Frequency(f_test, N, f_s);</span><br><span class="line"></span><br><span class="line">Y(:,<span class="number">1</span>) = X(:,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span> k = <span class="number">2</span>:N</span><br><span class="line">	Y(:,k) = <span class="number">1</span>/A*X(:,k) + <span class="number">1</span>/A*X(:,k<span class="number">-1</span>) + B/A*Y(:,k<span class="number">-1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">figure</span>(<span class="number">2</span>)</span><br><span class="line"><span class="built_in">plot</span>(T_length, Y);</span><br><span class="line">axis([<span class="number">0</span> <span class="number">5</span>*<span class="number">1</span>/f_test <span class="number">-1</span> <span class="number">1</span>]);</span><br><span class="line">grid on</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span> = <span class="title">Frequency</span><span class="params">(f, N, f_s)</span></span></span><br><span class="line"></span><br><span class="line">f_function = f;</span><br><span class="line">N_function = N;</span><br><span class="line">f_s_function = f_s;</span><br><span class="line">n_function = <span class="number">0</span>:N_function - <span class="number">1</span>;		<span class="comment">%信号重构点数</span></span><br><span class="line">t_function = n_function/f_s_function;	<span class="comment">%时间序列</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x = <span class="built_in">sin</span>(<span class="number">2</span>*<span class="built_in">pi</span>*f_function*t_function);</span><br><span class="line"></span><br><span class="line"><span class="built_in">figure</span>(<span class="number">1</span>)</span><br><span class="line"><span class="built_in">plot</span>(t_function, x);</span><br><span class="line">axis([<span class="number">0</span> <span class="number">5</span>*<span class="number">1</span>/f_function <span class="number">-1</span> <span class="number">1</span>]);</span><br><span class="line">grid on</span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
@@ -119,7 +128,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wcsincs.github.io.git/2021/05/21/%E7%AE%80%E6%98%93FIR%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8/" data-id="ckoy3r28v0004t8th6pdia3ia" data-title="简易FIR低通滤波器" class="article-share-link">Partager</a>
+      <a data-url="https://wcsincs.github.io.git/2021/05/21/%E7%AE%80%E6%98%93FIR%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8/" data-id="ckoy3r28v0004t8th6pdia3ia" data-title="简易FIR低通滤波器" class="article-share-link">Share</a>
       
       
       
@@ -133,7 +142,7 @@
   
   
     <a href="/2021/05/13/%E5%86%B2%E6%BF%80%E4%BF%A1%E5%8F%B7%E5%90%88%E6%88%90/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">冲击信号的合成</div>
     </a>
   
@@ -152,7 +161,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FIR/" rel="tag">FIR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3/" rel="tag">信号相关</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" rel="tag">数字信号处理</a></li></ul>
     </div>
@@ -162,7 +171,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/FIR/" style="font-size: 10px;">FIR</a> <a href="/tags/%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3/" style="font-size: 20px;">信号相关</a> <a href="/tags/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/" style="font-size: 10px;">数字信号处理</a>
     </div>
@@ -181,7 +190,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -211,7 +220,7 @@
     <div id="footer-info" class="inner">
       
       &copy; 2021 wcsin<br>
-      Propulsé par <a href="https://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
